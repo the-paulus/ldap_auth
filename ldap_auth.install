@@ -1,0 +1,65 @@
+<?php
+
+function ldap_auth_schema() {
+
+  $schema = array();
+
+  $schema['ldap_auth'] = array(
+    'fields' => array(
+      'lid' => array(
+        'type' => 'serial',
+      ),
+      'domain' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      ),
+      'bn' => array(
+        'type' => 'text',
+        'not null' => TRUE,
+      )
+    ),
+    'primary key' => array('lid'),
+    'unique keys' => array('unq_lid' => array('lid')),
+  );
+
+  return $schema;
+}
+
+/* Implementation of hook_uninstall() */
+function ldap_auth_uninstall() {
+  // Remove the variables
+  variable_del('ldap_auth_address');
+}
+
+/* Implementation of hook_enable() */
+function ldap_auth_enable() {
+
+  module_load_install('inc', 'ldap_auth', 'includes/ldap_auth.fields');
+
+  $fields = ldap_auth_fields();
+
+  foreach ($fields['fields'] as $name => $group) {
+
+    if (!field_info_field($name)) {
+
+      $group['field_name'] = $name;
+      $fields['instances'][$name]['field_name'] = $name;
+
+      field_create_field($group);
+      field_create_instanct($fields['instances']);
+
+    }
+
+  }
+
+  foreach ($fields['fieldgroups'] as $name => $group) {
+
+    if (!field_group_exists($group->group_name, $group->entity_type, $group->bundle, $group->mode)) {
+
+      field_group_group_save($group);
+
+    }
+
+  }
+
+}

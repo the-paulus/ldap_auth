@@ -1,0 +1,2201 @@
+<?php
+
+function mpm_ldap_fields() {
+  $fields = array(
+      'fields' => array(
+          'field_city' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_city' => array(
+                                  'value' => 'field_city_value',
+                                  'format' => 'field_city_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_city' => array(
+                                  'value' => 'field_city_value',
+                                  'format' => 'field_city_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_city',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_company' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_company' => array(
+                                  'value' => 'field_company_value',
+                                  'format' => 'field_company_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_company' => array(
+                                  'value' => 'field_company_value',
+                                  'format' => 'field_company_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_company',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_department' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_department' => array(
+                                  'value' => 'field_department_value',
+                                  'format' => 'field_department_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_department' => array(
+                                  'value' => 'field_department_value',
+                                  'format' => 'field_department_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_department',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_fax' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_fax' => array(
+                                  'value' => 'field_fax_value',
+                                  'format' => 'field_fax_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_fax' => array(
+                                  'value' => 'field_fax_value',
+                                  'format' => 'field_fax_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_fax',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_first_name' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_first_name' => array(
+                                  'value' => 'field_first_name_value',
+                                  'format' => 'field_first_name_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_first_name' => array(
+                                  'value' => 'field_first_name_value',
+                                  'format' => 'field_first_name_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_first_name',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_job_title' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_job_title' => array(
+                                  'value' => 'field_job_title_value',
+                                  'format' => 'field_job_title_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_job_title' => array(
+                                  'value' => 'field_job_title_value',
+                                  'format' => 'field_job_title_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_job_title',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_last_name' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_last_name' => array(
+                                  'value' => 'field_last_name_value',
+                                  'format' => 'field_last_name_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_last_name' => array(
+                                  'value' => 'field_last_name_value',
+                                  'format' => 'field_last_name_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_last_name',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_mobile_phone' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_mobile_phone' => array(
+                                  'value' => 'field_mobile_phone_value',
+                                  'format' => 'field_mobile_phone_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_mobile_phone' => array(
+                                  'value' => 'field_mobile_phone_value',
+                                  'format' => 'field_mobile_phone_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_mobile_phone',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_phone_number' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_phone_number' => array(
+                                  'value' => 'field_phone_number_value',
+                                  'format' => 'field_phone_number_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_phone_number' => array(
+                                  'value' => 'field_phone_number_value',
+                                  'format' => 'field_phone_number_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_phone_number',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_state' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'allowed_values' => array(
+                      'AL' => 'Alabama',
+                      'AK' => 'Alaska',
+                      'AZ' => 'Arizona',
+                      'AR' => 'Arkansas',
+                      'CA' => 'California',
+                      'CO' => 'Colorado',
+                      'CT' => 'Connecticut',
+                      'DE' => 'Delaware',
+                      'FL' => 'Florida',
+                      'GA' => 'Georgia',
+                      'HI' => 'Hawaii',
+                      'ID' => 'Idaho',
+                      'IL' => 'Illinois',
+                      'IN' => 'Indiana',
+                      'IA' => 'Iowa',
+                      'KS' => 'Kansas',
+                      'KY' => 'Kentucky',
+                      'LA' => 'Louisiana',
+                      'ME' => 'Maine',
+                      'MD' => 'Maryland',
+                      'MA' => 'Massachusetts',
+                      'MI' => 'Michigan',
+                      'MN' => 'Minnesota',
+                      'MS' => 'Mississippi',
+                      'MO' => 'Missouri',
+                      'MT' => 'Montana',
+                      'NE' => 'Nebraska',
+                      'NV' => 'Nevada',
+                      'NH' => 'New Hampshire',
+                      'NJ' => 'New Jersey',
+                      'NM' => 'New Mexico',
+                      'NY' => 'New York',
+                      'NC' => 'North Carolina',
+                      'ND' => 'North Dakota',
+                      'OH' => 'Ohio',
+                      'OK' => 'Oklahoma',
+                      'OR' => 'Oregon',
+                      'PA' => 'Pennsylvania',
+                      'RI' => 'Rhode Island',
+                      'SC' => 'South Carolina',
+                      'SD' => 'South Dakota',
+                      'TN' => 'Tennessee',
+                      'TX' => 'Texas',
+                      'UT' => 'Utah',
+                      'VT' => 'Vermont',
+                      'VA' => 'Virginia',
+                      'WA' => 'Washington',
+                      'WV' => 'West Virginia',
+                      'WI' => 'Wisconsin',
+                      'WY' => 'Wyoming',
+                  ),
+                  'allowed_values_function' => '',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_state' => array(
+                                  'value' => 'field_state_value',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_state' => array(
+                                  'value' => 'field_state_value',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(),
+              'indexes' => array(
+                  'value' => array(
+                      0 => 'value',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_state',
+              'type' => 'list_text',
+              'module' => 'list',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_street_address' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_street_address' => array(
+                                  'value' => 'field_street_address_value',
+                                  'format' => 'field_street_address_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_street_address' => array(
+                                  'value' => 'field_street_address_value',
+                                  'format' => 'field_street_address_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_street_address',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_street_address_2' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_street_address_2' => array(
+                                  'value' => 'field_street_address_2_value',
+                                  'format' => 'field_street_address_2_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_street_address_2' => array(
+                                  'value' => 'field_street_address_2_value',
+                                  'format' => 'field_street_address_2_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_street_address_2',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_work_city' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_work_city' => array(
+                                  'value' => 'field_work_city_value',
+                                  'format' => 'field_work_city_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_work_city' => array(
+                                  'value' => 'field_work_city_value',
+                                  'format' => 'field_work_city_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_work_city',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_work_phone' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_work_phone' => array(
+                                  'value' => 'field_work_phone_value',
+                                  'format' => 'field_work_phone_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_work_phone' => array(
+                                  'value' => 'field_work_phone_value',
+                                  'format' => 'field_work_phone_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_work_phone',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_work_state' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'allowed_values' => array(
+                      'AL' => 'Alabama',
+                      'AK' => 'Alaska',
+                      'AZ' => 'Arizona',
+                      'AR' => 'Arkansas',
+                      'CA' => 'California',
+                      'CO' => 'Colorado',
+                      'CT' => 'Connecticut',
+                      'DE' => 'Delaware',
+                      'FL' => 'Florida',
+                      'GA' => 'Georgia',
+                      'HI' => 'Hawaii',
+                      'ID' => 'Idaho',
+                      'IL' => 'Illinois',
+                      'IN' => 'Indiana',
+                      'IA' => 'Iowa',
+                      'KS' => 'Kansas',
+                      'KY' => 'Kentucky',
+                      'LA' => 'Louisiana',
+                      'ME' => 'Maine',
+                      'MD' => 'Maryland',
+                      'MA' => 'Massachusetts',
+                      'MI' => 'Michigan',
+                      'MN' => 'Minnesota',
+                      'MS' => 'Mississippi',
+                      'MO' => 'Missouri',
+                      'MT' => 'Montana',
+                      'NE' => 'Nebraska',
+                      'NV' => 'Nevada',
+                      'NH' => 'New Hampshire',
+                      'NJ' => 'New Jersey',
+                      'NM' => 'New Mexico',
+                      'NY' => 'New York',
+                      'NC' => 'North Carolina',
+                      'ND' => 'North Dakota',
+                      'OH' => 'Ohio',
+                      'OK' => 'Oklahoma',
+                      'OR' => 'Oregon',
+                      'PA' => 'Pennsylvania',
+                      'RI' => 'Rhode Island',
+                      'SC' => 'South Carolina',
+                      'SD' => 'South Dakota',
+                      'TN' => 'Tennessee',
+                      'TX' => 'Texas',
+                      'UT' => 'Utah',
+                      'VT' => 'Vermont',
+                      'VA' => 'Virginia',
+                      'WA' => 'Washington',
+                      'WV' => 'West Virginia',
+                      'WI' => 'Wisconsin',
+                      'WY' => 'Wyoming',
+                  ),
+                  'allowed_values_function' => '',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_work_state' => array(
+                                  'value' => 'field_work_state_value',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_work_state' => array(
+                                  'value' => 'field_work_state_value',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(),
+              'indexes' => array(
+                  'value' => array(
+                      0 => 'value',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_work_state',
+              'type' => 'list_text',
+              'module' => 'list',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_work_street_address' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_work_street_address' => array(
+                                  'value' => 'field_work_street_address_value',
+                                  'format' => 'field_work_street_address_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_work_street_address' => array(
+                                  'value' => 'field_work_street_address_value',
+                                  'format' => 'field_work_street_address_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_work_street_address',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_work_street_address_2' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_work_street_address_2' => array(
+                                  'value' => 'field_work_street_address_2_value',
+                                  'format' => 'field_work_street_address_2_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_work_street_address_2' => array(
+                                  'value' => 'field_work_street_address_2_value',
+                                  'format' => 'field_work_street_address_2_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_work_street_address_2',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_work_zip' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_work_zip' => array(
+                                  'value' => 'field_work_zip_value',
+                                  'format' => 'field_work_zip_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_work_zip' => array(
+                                  'value' => 'field_work_zip_value',
+                                  'format' => 'field_work_zip_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_work_zip',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+          'field_zip' => array(
+              'translatable' => '0',
+              'entity_types' => array(),
+              'settings' => array(
+                  'max_length' => '255',
+              ),
+              'storage' => array(
+                  'type' => 'field_sql_storage',
+                  'settings' => array(),
+                  'module' => 'field_sql_storage',
+                  'active' => '1',
+                  'details' => array(
+                      'sql' => array(
+                          'FIELD_LOAD_CURRENT' => array(
+                              'field_data_field_zip' => array(
+                                  'value' => 'field_zip_value',
+                                  'format' => 'field_zip_format',
+                              ),
+                          ),
+                          'FIELD_LOAD_REVISION' => array(
+                              'field_revision_field_zip' => array(
+                                  'value' => 'field_zip_value',
+                                  'format' => 'field_zip_format',
+                              ),
+                          ),
+                      ),
+                  ),
+              ),
+              'foreign keys' => array(
+                  'format' => array(
+                      'table' => 'filter_format',
+                      'columns' => array(
+                          'format' => 'format',
+                      ),
+                  ),
+              ),
+              'indexes' => array(
+                  'format' => array(
+                      0 => 'format',
+                  ),
+              ),
+              'field_permissions' => array(
+                  'type' => '1',
+              ),
+              'field_name' => 'field_zip',
+              'type' => 'text',
+              'module' => 'text',
+              'active' => '1',
+              'locked' => '0',
+              'cardinality' => '1',
+              'deleted' => '0',
+              'columns' => array(
+                  'value' => array(
+                      'type' => 'varchar',
+                      'length' => '255',
+                      'not null' => FALSE,
+                  ),
+                  'format' => array(
+                      'type' => 'varchar',
+                      'length' => 255,
+                      'not null' => FALSE,
+                  ),
+              ),
+              'bundles' => array(
+                  'user' => array(
+                      0 => 'user',
+                  ),
+              ),
+          ),
+      ),
+      'instances' => array(
+          'field_city' => array(
+              0 => array(
+                  'label' => 'City',
+                  'widget' => array(
+                      'weight' => '7',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 9,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_city',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_company' => array(
+              0 => array(
+                  'label' => 'Company',
+                  'widget' => array(
+                      'weight' => '6',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 3,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_company',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_department' => array(
+              0 => array(
+                  'label' => 'Department',
+                  'widget' => array(
+                      'weight' => '8',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 4,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_department',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_fax' => array(
+              0 => array(
+                  'label' => 'Fax',
+                  'widget' => array(
+                      'weight' => '15',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 19,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_fax',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_first_name' => array(
+              0 => array(
+                  'label' => 'First Name',
+                  'widget' => array(
+                      'weight' => '3',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 0,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_first_name',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_job_title' => array(
+              0 => array(
+                  'label' => 'Job Title',
+                  'widget' => array(
+                      'weight' => '7',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 2,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_job_title',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_last_name' => array(
+              0 => array(
+                  'label' => 'Last Name',
+                  'widget' => array(
+                      'weight' => '4',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 1,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_last_name',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_mobile_phone' => array(
+              0 => array(
+                  'label' => 'Mobile Phone',
+                  'widget' => array(
+                      'weight' => '11',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 18,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_mobile_phone',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_phone_number' => array(
+              0 => array(
+                  'label' => 'Phone',
+                  'widget' => array(
+                      'weight' => '10',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 7,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_phone_number',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_state' => array(
+              0 => array(
+                  'label' => 'State',
+                  'widget' => array(
+                      'weight' => '8',
+                      'type' => 'options_select',
+                      'module' => 'options',
+                      'active' => 1,
+                      'settings' => array(),
+                  ),
+                  'settings' => array(
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'list_default',
+                          'settings' => array(),
+                          'module' => 'list',
+                          'weight' => 10,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_state',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_street_address' => array(
+              0 => array(
+                  'label' => 'Street Address',
+                  'widget' => array(
+                      'weight' => '5',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 5,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_street_address',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_street_address_2' => array(
+              0 => array(
+                  'label' => 'Street Address 2',
+                  'widget' => array(
+                      'weight' => '6',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 8,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_street_address_2',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_work_city' => array(
+              0 => array(
+                  'label' => 'City',
+                  'widget' => array(
+                      'weight' => '11',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 14,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_work_city',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_work_phone' => array(
+              0 => array(
+                  'label' => 'Phone',
+                  'widget' => array(
+                      'weight' => '14',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 17,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_work_phone',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_work_state' => array(
+              0 => array(
+                  'label' => 'State',
+                  'widget' => array(
+                      'weight' => '12',
+                      'type' => 'options_select',
+                      'module' => 'options',
+                      'active' => 1,
+                      'settings' => array(),
+                  ),
+                  'settings' => array(
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'list_default',
+                          'settings' => array(),
+                          'module' => 'list',
+                          'weight' => 15,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_work_state',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_work_street_address' => array(
+              0 => array(
+                  'label' => 'Street Address',
+                  'widget' => array(
+                      'weight' => '9',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 12,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_work_street_address',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_work_street_address_2' => array(
+              0 => array(
+                  'label' => 'Street Address 2',
+                  'widget' => array(
+                      'weight' => '10',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 13,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_work_street_address_2',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_work_zip' => array(
+              0 => array(
+                  'label' => 'Zip',
+                  'widget' => array(
+                      'weight' => '13',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 16,
+                      ),
+                  ),
+                  'required' => 0,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_work_zip',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+          'field_zip' => array(
+              0 => array(
+                  'label' => 'Zip',
+                  'widget' => array(
+                      'weight' => '9',
+                      'type' => 'text_textfield',
+                      'module' => 'text',
+                      'active' => 1,
+                      'settings' => array(
+                          'size' => '60',
+                      ),
+                  ),
+                  'settings' => array(
+                      'text_processing' => '0',
+                      'linkit' => array(
+                          'enable' => 0,
+                          'profile' => '',
+                          'button_text' => 'Search',
+                      ),
+                      'user_register_form' => 1,
+                  ),
+                  'display' => array(
+                      'default' => array(
+                          'label' => 'above',
+                          'type' => 'text_default',
+                          'settings' => array(),
+                          'module' => 'text',
+                          'weight' => 11,
+                      ),
+                  ),
+                  'required' => 1,
+                  'description' => '',
+                  'default_value' => NULL,
+                  'field_name' => 'field_zip',
+                  'entity_type' => 'user',
+                  'bundle' => 'user',
+                  'deleted' => '0',
+              ),
+          ),
+      ),
+      'fieldgroups' => array(
+          'group_personal|user|user|form' => (object) array(
+              'id' => '1',
+              'identifier' => 'group_personal|user|user|form',
+              'group_name' => 'group_personal',
+              'entity_type' => 'user',
+              'bundle' => 'user',
+              'mode' => 'form',
+              'parent_name' => '',
+              'table' => 'field_group',
+              'type' => 'Normal',
+              'export_type' => 1,
+              'disabled' => FALSE,
+              'label' => 'Personal Information',
+              'weight' => '2',
+              'children' => array(
+                  0 => 'field_first_name',
+                  1 => 'field_last_name',
+                  2 => 'field_street_address',
+                  3 => 'field_phone_number',
+                  4 => 'field_street_address_2',
+                  5 => 'field_city',
+                  6 => 'field_state',
+                  7 => 'field_zip',
+                  8 => 'field_mobile_phone',
+              ),
+              'format_type' => 'fieldset',
+              'format_settings' => array(
+                  'label' => 'Personal Information',
+                  'instance_settings' => array(
+                      'required_fields' => 1,
+                      'id' => '',
+                      'classes' => 'group-personal field-group-fieldset',
+                      'description' => '',
+                  ),
+                  'formatter' => 'open',
+              ),
+          ),
+          'group_work|user|user|form' => (object) array(
+              'id' => '2',
+              'identifier' => 'group_work|user|user|form',
+              'group_name' => 'group_work',
+              'entity_type' => 'user',
+              'bundle' => 'user',
+              'mode' => 'form',
+              'parent_name' => '',
+              'table' => 'field_group',
+              'type' => 'Normal',
+              'export_type' => 1,
+              'disabled' => FALSE,
+              'label' => 'Work Information',
+              'weight' => '3',
+              'children' => array(
+                  0 => 'field_job_title',
+                  1 => 'field_company',
+                  2 => 'field_department',
+                  3 => 'field_work_street_address',
+                  4 => 'field_work_street_address_2',
+                  5 => 'field_work_city',
+                  6 => 'field_work_state',
+                  7 => 'field_work_zip',
+                  8 => 'field_work_phone',
+                  9 => 'field_fax',
+              ),
+              'format_type' => 'fieldset',
+              'format_settings' => array(
+                  'label' => 'Work Information',
+                  'instance_settings' => array(
+                      'required_fields' => 1,
+                      'id' => '',
+                      'classes' => 'group-work field-group-fieldset',
+                      'description' => '',
+                  ),
+                  'formatter' => 'open',
+              ),
+          ),
+      ),
+  );
+  
+  return $fields;
+}

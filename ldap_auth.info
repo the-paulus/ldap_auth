@@ -1,0 +1,10 @@
+name = LDAP Authentication
+description = Provides functionality to authenticate users using LDAP.
+package = Authentication
+core = 7.x
+version = 7.x-1.0
+configure = admin/people/ldap
+
+files[] = includes/ldap_auth.fields.inc
+
+
