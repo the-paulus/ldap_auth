@@ -471,23 +471,23 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
     }
 
     $edit = array(
-      'name' => $samaccountname,
+      'name' => $ldap_username,
       'pass' => $form_state['values']['pass'],
-      'init' => $samaccountname,
-      'mail' => $samaccountname,
+      'init' => $ldap_username,
+      'mail' => $ldap_username,
       'status' => 1,
       'roles' => $user_roles,
       'field_first_name' => array('und' => array(array('value' => $ldap_fields['givenname']))),
       'field_last_name' => array('und' => array(array('value' => $ldap_fields['sn']))),
       'field_job_title' => array('und' => array(array('value' => $ldap_fields['title']))),
-      'field_company' => array('und' => array(array('value' => (!empty($ldap_fields['company'])) ? $ldap_fields['company'] : 'Milwaukee Public Museum'))),
+      'field_company' => array('und' => array(array('value' => (!empty($ldap_fields['company'])) ? $ldap_fields['company'] : ''))),
       'field_department' => array('und' => array(array('value' => $ldap_fields['department']))),
-      'field_street_address' => array('und' => array(array('value' => '800 W Wells St'))),
-      'field_city' => array('und' => array(array('value' => 'Milwaukee'))),
-      'field_state' => array('und' => array(array('value' => 'WI'))),
-      'field_zip' => array('und' => array(array('value' => '53233'))),
-      'field_phone_number' => array('und' => array(array('value' => '(414) 278-2728'))),
-      'field_mobile_phone' => array('und' => array(array('value' => 'NA')))
+      'field_street_address' => array('und' => array(array('value' => ''))),
+      'field_city' => array('und' => array(array('value' => ''))),
+      'field_state' => array('und' => array(array('value' => ''))),
+      'field_zip' => array('und' => array(array('value' => ''))),
+      'field_phone_number' => array('und' => array(array('value' => ''))),
+      'field_mobile_phone' => array('und' => array(array('value' => '')))
     );
 
     // User is already registered on the site. We need to make sure that the information on the site
@@ -526,9 +526,9 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
  */
 function sanitizeLDAPEmail($email) {
 
-  if (preg_match('/[a-zA-z@.]*/i', $email, $matches)) {
+  if (preg_match_all('/[a-z@.]*/i', $email, $matches)) {
 
-    return implode('', $matches);
+    return implode('', $matches[0]);
 
   }
 
