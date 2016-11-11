@@ -1,10 +1,8 @@
 <?php
 
 define('PERM_ADMIN_LDAP', 'administer ldap settings');
+
 define('LDAP_AUTH_ADDRESS', 'ldap_auth_address');
-define('LDAP_AUTH_DOMAINS', 'ldap_auth_domains');
-define('LDAP_AUTH_DOMAIN_REMOVE', 'ldap_auth_domain_remove');
-define('LDAP_AUTH_DOMAIN_ID', 'ldap_auth_domain_id');
 define('LDAP_AUTH_DOMAIN', 'ldap_auth_domain');
 define('LDAP_AUTH_BN', 'ldap_auth_bn');
 
@@ -36,154 +34,43 @@ function ldap_auth_permissions() {
 /* Admin settings call back. */
 function ldap_admin_settings_form($form, &$form_state) {
 
-  $new_domains_num = (isset($form_state['values'][LDAP_AUTH_DOMAINS])) ?
-    count($form_state['values'][LDAP_AUTH_DOMAINS]) + 1 :
-    (isset($form_state['domains_count'])) ? $form_state['domains_count'] : 0;
-
   $form = array();
+
+  if(variable_get(LDAP_AUTH_ADDRESS, '') != '') {
+
+    $ad = ldap_connect(variable_get(LDAP_AUTH_ADDRESS));
+
+    if(!@ldap_bind($ad)) {
+
+      drupal_set_message(t('Unable to connect to LDAP server.'), 'error');
+
+    }
+
+    ldap_unbind($ad);
+
+  }
 
   $form[LDAP_AUTH_ADDRESS] = array(
       '#type' => 'textfield',
-      '#title' => t('Active Directory Address'),
-      '#description' => t('Enter the address or IP of the Active Directory server (eg: dc1.domain.tld)'),
-      '#default_value' => variable_get(LDAP_AUTH_ADDRESS, ''),
+      '#title' => t('LDAP Address'),
+      '#description' => t('Enter the address or IP of the LDAP server (eg: ldap://ldap.example.com)'),
+      '#default_value' => variable_get(LDAP_AUTH_ADDRESS, 'ldaps://'),
     );
 
-  $form[LDAP_AUTH_DOMAINS] = array(
-    '#value' => ' ',
-    '#prefix' => '<div id="ldap-auth-domains">',
-    '#suffix' => '</div>',
+  $form[LDAP_AUTH_DOMAIN] = array(
+    '#type' => 'textfield',
+    '#title' => t('Domain'),
+    '#description' => t('The domain that is to be authenticated. Email addresses ending with this domain will be authenticated against the above LDAP server.'),
+    '#default_value' => variable_get(LDAP_AUTH_DOMAIN, 'example.com'),
   );
 
-  $rs = db_select('ldap_auth', 'la')
-    ->fields('la')
-    ->execute();
-
-  if(isset($form_state['values']['op']) && $form_state['values']['op'] == 'Add') {
-
-    $form[LDAP_AUTH_DOMAINS][$rs->rowCount()][] = ldap_admin_settings_form_element_domain();
-
-  } else {
-
-    $delta = 0;
-
-    while($row = $rs->fetchAssoc()) {
-
-      $form[LDAP_AUTH_DOMAINS][$delta] = ldap_admin_settings_form_element_domain($row['lid'], $row['domain'], $row['bn'], $delta);
-
-      $delta++;
-
-    }
-
-  }
-
-  for($delta = 0; $delta < ($delta + $new_domains_num); $delta++) {
-
-    if($form_state['values'][LDAP_AUTH_DOMAINS][$delta][LDAP_AUTH_DOMAIN_REMOVE]) {
-
-      unset($form[LDAP_AUTH_DOMAINS][$delta]);
-
-    }
-
-  }
-
-  $form['ldap_auth_add'] = array(
-    '#type' => 'submit',
-    '#value' => t('Add'),
-    '#submit' => array('ldap_admin_add_form_submit'),
-    '#ajax' => array(
-      'event' => 'click',
-      'callback' => 'ajax_ldap_auth_add_domain',
-      'wrapper' => 'ldap-auth-domains',
-      'method' => 'replace',
-      'effect' => 'none',
-    )
+  $form[LDAP_AUTH_BN] = array(
+    '#type' => 'textfield',
+    '#title' => t('Base Distinquished Name'),
+    '#default_value' => variable_get(LDAP_AUTH_BN, ''),
   );
 
   return system_settings_form($form);
-
-}
-
-function ldap_admin_settings_form_validate($form, &$form_state) {
-
-}
-
-function ldap_admin_settings_form_submit($form, &$form_state) {
-
-}
-
-/**
- *  Form submition handler for adding new camp program dates. This is only used when Java
- *  Script is disabled.
- *
- *  @param array $form Existing form as an array.
- *  @param array $form_state The state of the form as an array.
- */
-function ldap_admin_add_form_submit($form, &$form_state) {
-
-  $form_state['domains_count'] = count($form_state['values'][LDAP_AUTH_DOMAINS]) + 1;
-
-  $form_state['rebuild'] = TRUE;
-
-}
-
-/**
- * AJAX callback for adding more fields to allow the user to add additional
- * domains to be added for authentication.
- *
- * @param array $form Existing form as an array.
- * @param array $form_state The state of the form as an array.
- * @return array Modified portion of the form that will be used to replace the list of programs.
- */
-function ajax_ldap_auth_add_domain($form, &$form_state) {
-
-  return $form[LDAP_AUTH_DOMAINS];
-
-}
-
-/**
- * Helper function that returns associated fields for adding a domain to be
- * authenticated against.
- *
- * @param int $lid Unique database index for the domain and bn
- * @param string $domain Domain to be analyized for authentication against LDAP.
- * @param string $bn The base name of where to start looking.
- * @param int $delta Current position in list.
- * @return array Form elements as an array.
- */
-function ldap_admin_settings_form_element_domain($lid = 0, $domain = '', $bn = '', $delta = 0) {
-
-  $form = array();
-
-  $form[LDAP_AUTH_DOMAINS][$delta]['#tree'] = TRUE;
-
-  $form[LDAP_AUTH_DOMAINS][$delta][LDAP_AUTH_DOMAIN_ID] = array(
-    '#type' => 'hidden',
-    '#parents' => array(LDAP_AUTH_DOMAINS, $delta, LDAP_AUTH_DOMAIN_ID),
-    '#default_value' => $lid,
-  );
-
-  $form[LDAP_AUTH_DOMAINS][$delta][LDAP_AUTH_DOMAIN_REMOVE] = array(
-    '#type' => 'checkbox',
-    '#parents' => array(LDAP_AUTH_DOMAINS, $delta, LDAP_AUTH_DOMAIN_REMOVE),
-    '#default_value' => $lid,
-  );
-
-  $form[LDAP_AUTH_DOMAINS][$delta][LDAP_AUTH_DOMAIN] = array(
-    '#type' => 'textfield',
-    '#title' => t('Domain'),
-    '#parents' => array(LDAP_AUTH_DOMAINS, $delta, LDAP_AUTH_DOMAIN),
-    '#default_value' => $domain,
-  );
-
-  $form[LDAP_AUTH_DOMAIN][$delta][LDAP_AUTH_BN] = array(
-    '#type' => 'textfield',
-    '#title' => t('Base Distinquished Name'),
-    '#parents' => array(LDAP_AUTH_DOMAINS, $delta, LDAP_AUTH_BN),
-    '#default_value' => $bn,
-  );
-
-  return $form;
 
 }
 
