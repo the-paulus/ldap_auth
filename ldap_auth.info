@@ -7,4 +7,8 @@ configure = admin/people/ldap
 
 files[] = includes/ldap_auth.fields.inc
 
-
+dependencies[] = field
+dependencies[] = field_group
+dependencies[] = list
+dependencies[] = options
+dependencies[] = text
