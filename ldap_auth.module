@@ -260,7 +260,8 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
 
   }
 
-  if (ldap_bind($ad, $samaccountname, $form_state['values']['pass'])) {
+  $ldn = "cn=" . $ldap_username . "," . variable_get(LDAP_AUTH_BN);
+  if (ldap_bind($ad, $ldn, $form_state['values']['pass'])) {
 
     $ldap_fields = array(
       'company',
