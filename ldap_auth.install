@@ -1,5 +1,11 @@
 <?php
+require_once dirname(__FILE__) . '/includes/ldap_auth.fields.inc';
 
+/**
+ * Implementation of hook_schema().
+ *
+ * @return The database schema.
+ */
 function ldap_auth_schema() {
 
   $schema = array();
@@ -29,12 +35,24 @@ function ldap_auth_schema() {
 function ldap_auth_uninstall() {
   // Remove the variables
   variable_del('ldap_auth_address');
+
+  $fields = ldap_auth_fields();
+
+  foreach ($fields['fields'] as $name => $group) {
+
+    field_delete_field($name);
+    field_delete_instance($fields['instances'][$name][0], TRUE);
+
+  }
+
+  foreach($fields['fieldgroups'] as $name => $group) {
+
+    field_group_group_export_delete($group);
+  }
 }
 
 /* Implementation of hook_enable() */
 function ldap_auth_enable() {
-
-  module_load_install('inc', 'ldap_auth', 'includes/ldap_auth.fields');
 
   $fields = ldap_auth_fields();
 
@@ -43,10 +61,10 @@ function ldap_auth_enable() {
     if (!field_info_field($name)) {
 
       $group['field_name'] = $name;
-      $fields['instances'][$name]['field_name'] = $name;
+      $fields['instances'][$name][0]['field_name'] = $name;
 
       field_create_field($group);
-      field_create_instanct($fields['instances']);
+      field_create_instance($fields['instances'][$name][0]);
 
     }
 
@@ -56,6 +74,7 @@ function ldap_auth_enable() {
 
     if (!field_group_exists($group->group_name, $group->entity_type, $group->bundle, $group->mode)) {
 
+      $group->export_type = 0;
       field_group_group_save($group);
 
     }
