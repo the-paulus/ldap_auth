@@ -212,7 +212,7 @@ function _ldap_auth_authentication_validate($form, &$form_state) {
 }
 
 /**
- * Searches LDAP/AD for user information, generates a new user object to either save a new user
+ * Searches LDAP for user information, generates a new user object to either save a new user
  * on the website or edit their information and roles.
  *
  * @param array $form Login form as an array.
@@ -222,28 +222,34 @@ function _ldap_auth_authentication_validate($form, &$form_state) {
  */
 function ldap_create_user_info($form, $form_state, $account = NULL) {
 
-  if (!$ad = ldap_connect('ldap://' . variable_get('ldap_auth_address', ''))) {
+  if (!$ad = ldap_connect(variable_get(LDAP_AUTH_ADDRESS, ''))) {
+
+    watchdog('ldap_auth', 'Unable to connect to LDAP server.');
 
     return FALSE;
 
   }
 
   $form_state['values']['name'] = sanitizeLDAPEmail($form_state['values']['name']);
+  $base_dn = variable_get(LDAP_AUTH_BN, '');
+  $filter = '(&(objectClass=person)(mail=' . $form_state['values']['name'] . '))';
+  $attributes = array('uid');
   $roles = array();    // List of parsed LDAP/AD groups.
   $role = array();    // Array of strings that results in exploding a single string by '-'
 
   ldap_set_option($ad, LDAP_OPT_PROTOCOL_VERSION, 3);
   ldap_set_option($ad, LDAP_OPT_REFERRALS, 0);
 
-  if (ldap_bind($ad, $form_state['values']['name'], $form_state['values']['pass'])) {
+  if (@ldap_bind($ad)) {
 
-    $search_samaccountname = ldap_search($ad, variable_get('dn_search', ''), '(&(objectClass=user)(mail=' . $form_state['values']['name'] . '))', array('samaccountname'));
+    $ldap_sr = ldap_search($ad, $base_dn, $filter, $attributes);
 
-    if (ldap_count_entries($ad, $search_samaccountname) == 1) {
+    if (ldap_count_entries($ad, $ldap_sr) == 1) {
 
-      $ldap_samaccountname_entry = ldap_first_entry($ad, $search_samaccountname);
-      $ldap_samaccountname_attribute = ldap_first_attribute($ad, $ldap_samaccountname_entry);
-      $samaccountname = strtolower(ldap_get_values($ad, $ldap_samaccountname_entry, $ldap_samaccountname_attribute)[0]);
+      $ldap_entry = ldap_first_entry($ad, $ldap_sr);
+
+      $ldap_attribute = ldap_first_attribute($ad, $ldap_entry);
+      $ldap_username = strtolower(ldap_get_values($ad, $ldap_entry, $ldap_attribute)[0]);
 
     }
     else {
@@ -268,7 +274,7 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
       'title',
     );
 
-    $search_results = ldap_search($ad, variable_get('dn_search', ''), '(&(objectClass=user)(mail=' . $form_state['values']['name'] . '))', $ldap_fields);
+    $search_results = ldap_search($ad, $base_dn, $filter, $ldap_fields);
 
     if (is_resource($search_results) && ldap_count_entries($ad, $search_results) == 1) {
 
