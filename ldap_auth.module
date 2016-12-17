@@ -38,15 +38,15 @@ function ldap_admin_settings_form($form, &$form_state) {
 
   if(variable_get(LDAP_AUTH_ADDRESS, '') != '') {
 
-    $ad = ldap_connect(variable_get(LDAP_AUTH_ADDRESS));
+    $ldap = ldap_connect(variable_get(LDAP_AUTH_ADDRESS));
 
-    if(!@ldap_bind($ad)) {
+    if(@ldap_bind($ldap)) {
 
-      drupal_set_message(t('Unable to connect to LDAP server.'), 'error');
+      drupal_set_message(t('Unable to bind to LDAP server: %ldap_errot', array('%ldap_error' => ldap_error($ldap))), 'error');
 
     }
 
-    ldap_unbind($ad);
+    ldap_unbind($ldap);
 
   }
 
@@ -222,7 +222,7 @@ function _ldap_auth_authentication_validate($form, &$form_state) {
  */
 function ldap_create_user_info($form, $form_state, $account = NULL) {
 
-  if (!$ad = ldap_connect(variable_get(LDAP_AUTH_ADDRESS, ''))) {
+  if (!$ldap = ldap_connect(variable_get(LDAP_AUTH_ADDRESS, ''))) {
 
     watchdog('ldap_auth', 'Unable to connect to LDAP server.');
 
@@ -237,19 +237,19 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
   $roles = array();    // List of parsed LDAP/AD groups.
   $role = array();    // Array of strings that results in exploding a single string by '-'
 
-  ldap_set_option($ad, LDAP_OPT_PROTOCOL_VERSION, 3);
-  ldap_set_option($ad, LDAP_OPT_REFERRALS, 0);
+  ldap_set_option($ldap, LDAP_OPT_PROTOCOL_VERSION, 3);
+  ldap_set_option($ldap, LDAP_OPT_REFERRALS, 0);
 
-  if (@ldap_bind($ad)) {
+  if (@ldap_bind($ldap)) {
 
-    $ldap_sr = ldap_search($ad, $base_dn, $filter, $attributes);
+    $ldap_sr = ldap_search($ldap, $base_dn, $filter, $attributes);
 
-    if (ldap_count_entries($ad, $ldap_sr) == 1) {
+    if (ldap_count_entries($ldap, $ldap_sr) == 1) {
 
-      $ldap_entry = ldap_first_entry($ad, $ldap_sr);
+      $ldap_entry = ldap_first_entry($ldap, $ldap_sr);
 
-      $ldap_attribute = ldap_first_attribute($ad, $ldap_entry);
-      $ldap_username = strtolower(ldap_get_values($ad, $ldap_entry, $ldap_attribute)[0]);
+      $ldap_attribute = ldap_first_attribute($ldap, $ldap_entry);
+      $ldap_username = strtolower(ldap_get_values($ldap, $ldap_entry, $ldap_attribute)[0]);
 
     }
     else {
@@ -261,7 +261,7 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
   }
 
   $ldn = "cn=" . $ldap_username . "," . variable_get(LDAP_AUTH_BN);
-  if (ldap_bind($ad, $ldn, $form_state['values']['pass'])) {
+  if (ldap_bind($ldap, $ldn, $form_state['values']['pass'])) {
 
     $ldap_fields = array(
       'company',
@@ -275,12 +275,12 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
       'title',
     );
 
-    $search_results = ldap_search($ad, $base_dn, $filter, $ldap_fields);
+    $search_results = ldap_search($ldap, $base_dn, $filter, $ldap_fields);
 
-    if (is_resource($search_results) && ldap_count_entries($ad, $search_results) == 1) {
+    if (is_resource($search_results) && ldap_count_entries($ldap, $search_results) == 1) {
 
-      $ldap_entry = ldap_first_entry($ad, $search_results);
-      $ldap_attribute = ldap_first_attribute($ad, $ldap_entry);
+      $ldap_entry = ldap_first_entry($ldap, $search_results);
+      $ldap_attribute = ldap_first_attribute($ldap, $ldap_entry);
       $ldap_groups = array();
       $ldap_fields = array();
 
@@ -289,16 +289,16 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
 
         if (strcasecmp($ldap_attribute, 'memberof') === 0) {
 
-          $ldap_groups = ldap_get_values($ad, $ldap_entry, $ldap_attribute);
+          $ldap_groups = ldap_get_values($ldap, $ldap_entry, $ldap_attribute);
 
         }
         else {
 
-          $ldap_fields[strtolower($ldap_attribute)] = ldap_get_values($ad, $ldap_entry, $ldap_attribute)[0];
+          $ldap_fields[strtolower($ldap_attribute)] = ldap_get_values($ldap, $ldap_entry, $ldap_attribute)[0];
 
         }
 
-      } while ($ldap_attribute = ldap_next_attribute($ad, $ldap_entry));
+      } while ($ldap_attribute = ldap_next_attribute($ldap, $ldap_entry));
 
       // Remove the prefixed subdomain from the roles.
       $configuration_path = conf_path();
@@ -333,7 +333,7 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
     else {
 
       ldap_free_result($search_results);
-      ldap_unbind($ad);
+      ldap_unbind($ldap);
 
       return FALSE; // No entries found.
 
@@ -400,14 +400,14 @@ function ldap_create_user_info($form, $form_state, $account = NULL) {
   }
   else {
 
-    ldap_unbind($ad);
+    ldap_unbind($ldap);
 
     return FALSE;
 
   }
 
   ldap_free_result($search_results);
-  ldap_unbind($ad);
+  ldap_unbind($ldap);
 
   return $user;
 }
